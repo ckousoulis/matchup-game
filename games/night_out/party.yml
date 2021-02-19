@@ -1,0 +1,136 @@
+key: party
+name: Party
+transition: Off we go to a party.
+start:
+  $ref: party/where
+choices:
+  where:
+    name: Party
+    prompt: What party do we go to?
+    options:
+      backyard:
+        name: Backyard pool party
+        next_choice:
+          $ref: party/pool_game
+      house:
+        name: Party in a big house
+        next_choice:
+          $ref: party/house_game
+  pool_game:
+    name: Game
+    prompt: What game do we play?
+    options:
+      cornhole:
+        name: Cornhole
+        next_choice:
+          $ref: party/pool_hangout
+      kan_jam:
+        name: Kan Jam
+        next_choice:
+          $ref: party/pool_hangout
+  house_game:
+    name: Game
+    prompt: What game do we play?
+    options:
+      beer_pong:
+        name: Beer Pong
+        next_choice:
+          $ref: party/house_hangout
+      beer_hockey:
+        name: Beer Hockey
+        next_choice:
+          $ref: party/house_hangout
+  pool_hangout:
+    name: Hangout
+    prompt: Where do we hang out?
+    options:
+      pool:
+        name: In the pool
+        next_choice:
+          $ref: party/dance_music
+      fire_pit:
+        name: Around the fire pit
+        next_choice:
+          $ref: party/chill_music
+  house_hangout:
+    name: Hangout
+    prompt: Where do we hang out
+    options:
+      stoners:
+        name: With the stoners
+        next_choice:
+          $ref: party/chill_music
+      dancers:
+        name: With the dancers
+        next_choice:
+          $ref: party/dance_music
+  dance_music:
+    name: Music
+    prompt: What music is playing?
+    options:
+      edm:
+        name: Electronic Dance Music
+        next_choice:
+          $ref: party/drink
+      hiphop:
+        name: Hip Hop Music
+        next_choice:
+          $ref: party/drink
+  chill_music:
+    name: Music
+    prompt: What music is playing?
+    options:
+      psychedelic:
+        name: Psychedelic
+        next_choice:
+          $ref: party/drink
+      funk:
+        name: Funk
+        next_choice:
+          $ref: party/drink
+  drink:
+    name: Drink
+    prompt: What do we get to drink?
+    options:
+      keg:
+        name: Solo cup of beer from the keg
+        next_choice:
+          $ref: party/talk
+      cooler:
+        name: Bottle of beer from the cooler
+        next_choice:
+          $ref: party/talk
+  talk:
+    name: Talk
+    prompt: Who do we talk to?
+    options:
+      guests:
+        name: Guests
+        transition: A guest won't stop talking to us about something.
+        next_choice:
+          $ref: party/guests
+      hosts:
+        name: Hosts
+        transition: The host's partner joins the convo and you know them.
+        next_choice:
+          $ref: party/hosts
+  guests:
+    name: Guests
+    prompt: What won't they shut up about?
+    options:
+      rush:
+        name: The band Rush
+        next_choice: null
+      conspiracies:
+        name: Conspiracy theories
+        next_choice: null
+  hosts:
+    name: Hosts
+    prompt: Who is the host's partner?
+    options:
+      ex:
+        name: Your ex
+        next_choice: null
+      boss:
+        name: Your boss
+        next_choice: null

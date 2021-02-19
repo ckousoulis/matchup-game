@@ -1,0 +1,112 @@
+key: movie
+name: Movie
+transition: Off we go to the movies.
+start:
+  $ref: movie/theater
+choices:
+  theater:
+    name: Theater
+    prompt: What theater do we go to?
+    options:
+      multiplex:
+        name: Multiplex with stadium seating
+        next_choice:
+          $ref: movie/multiplex
+      showroom:
+        name: Showroom with 2 screens
+        next_choice:
+          $ref: movie/showroom
+  multiplex:
+    name: Movie
+    prompt: What movie do we watch?
+    options:
+      animation:
+        name: Newly-released animation
+        next_choice:
+          $ref: movie/snack
+      blockbuster:
+        name: Summer blockbuster
+        next_choice:
+          $ref: movie/snack
+  showroom:
+    name: Movie
+    prompt: What movie do we watch?
+    options:
+      drama:
+        name: Surprise-hit drama
+        next_choice:
+          $ref: movie/snack
+      international:
+        name: International import
+        next_choice:
+          $ref: movie/snack
+  snack:
+    name: Snack
+    prompt: What snack do we get?
+    options:
+      reeses_pieces:
+        name: Reese's Pieces
+        next_choice:
+          $ref: movie/seat
+      sour_patch_kids:
+        name: Sour Patch Kids
+        next_choice:
+          $ref: movie/seat
+  seat:
+    name: Seat
+    prompt: Where do we sit?
+    options:
+      front:
+        name: Front half
+        next_choice:
+          $ref: movie/front
+      back:
+        name: Back half
+        next_choice:
+          $ref: movie/back
+  front:
+    name: Annoyance
+    prompt: Which annoyance would we rather deal with?
+    options:
+      talker:
+        name: Talkers behind us
+        next_choice:
+          $ref: movie/trope
+      eater:
+        name: Noisy eater beside us
+        next_choice:
+          $ref: movie/trope
+  back:
+    name: Annoyance
+    prompt: Which annoyance would we rather deal with?
+    options:
+      phone:
+        name: Phone user in front
+        next_choice:
+          $ref: movie/trope
+      sex:
+        name: Back row hanky panky
+        next_choice:
+          $ref: movie/trope
+  trope:
+    name: Comedy Trope
+    prompt: What comedy trope is played for a laugh?
+    options:
+      delayed_action:
+        name: Delayed action
+        next_choice:
+          $ref: movie/game
+      misunderstanding:
+        name: Misunderstanding
+        next_choice:
+          $ref: movie/game
+  game:
+    name: Arcade Game
+    prompt: What arcade game do we play after?
+    options:
+      dead:
+        name: House of the Dead
+        next_choice: null
+      cruisin:
+        name: Cruisin' USA
+        next_choice: null

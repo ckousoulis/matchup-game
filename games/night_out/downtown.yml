@@ -1,0 +1,106 @@
+key: downtown
+name: Downtown
+transition: Off we go to downtown. Things will be great!
+start:
+  $ref: downtown/restaurant
+choices:
+  restaurant:
+    name: Restaurant
+    prompt: What kind of restaurant do we go to?
+    options:
+      mexican:
+        name: Mexican
+        next_choice:
+          $ref: downtown/mexican_entree
+      brewpub:
+        name: Brewpub
+        next_choice:
+          $ref: downtown/brewpub_entree
+  mexican_entree:
+    name: Entree
+    prompt: What do we get to eat?
+    options:
+      fajitas:
+        name: Beef Fajitas Plate
+        next_choice:
+          $ref: downtown/dessert
+      enchiladas:
+        name: Pulled Pork Enchiladas
+        next_choice:
+          $ref: downtown/dessert
+  brewpub_entree:
+    name: Entree
+    prompt: What do we get to eat?
+    options:
+      burger:
+        name: Pub Burger
+        next_choice:
+          $ref: downtown/dessert
+      fish:
+        name: Fish & Chips
+        next_choice:
+          $ref: downtown/dessert
+  dessert:
+    name: Dessert
+    prompt: Where do we go for dessert?
+    options:
+      restaurant:
+        name: Order at the restaurant
+        next_choice:
+          $ref: downtown/coffee
+      ice_cream:
+        name: An ice cream place
+        next_choice:
+          $ref: downtown/coffee
+      bakery:
+        name: A bakery
+        next_choice:
+          $ref: downtown/coffee
+  coffee:
+    name: Coffee
+    prompt: What kind of coffee do we get?
+    options:
+      drip:
+        name: Drip coffee from Ethiopian beans
+        next_choice:
+          $ref: downtown/show
+      espresso:
+        name: An espresso drink from Guatemalan beans
+        next_choice:
+          $ref: downtown/show
+  show:
+    name: Street Show
+    prompt: What show do we watch on the street?
+    options:
+      magic:
+        name: Close-up magic
+        next_choice:
+          $ref: downtown/club
+      juggling:
+        name: Juggling set to music
+        next_choice:
+          $ref: downtown/club
+  club:
+    name: Club
+    prompt: Which retro-themed club do we go to?
+    options:
+      70s:
+        name: 70s
+        transition: We bump into a guy on quaaludes and he turns around.
+        next_choice:
+          $ref: downtown/fight
+      80s:
+        name: 80s
+        transition: We bump into a guy on cocaine and he turns around.
+        next_choice:
+          $ref: downtown/fight
+  fight:
+    name: Fight
+    prompt: How do we avoid a fight?
+    options:
+      blame:
+        name: Point to another guy and say "he did it"
+        next_choice: null
+      dumb:
+        name: Look confused and play dumb
+        next_choice: null

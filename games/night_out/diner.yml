@@ -1,0 +1,104 @@
+key: diner
+name: Diner
+transition: Off we go to a diner.
+start:
+  $ref: diner/seat
+choices:
+  seat:
+    name: Seat
+    prompt: Where do we sit?
+    options:
+      booth:
+        name: In a booth
+        next_choice:
+          $ref: diner/appetizer
+      table:
+        name: At a table
+        next_choice:
+          $ref: diner/appetizer
+  appetizer:
+    name: Appetizer
+    prompt: What appetizer do we share?
+    options:
+      curly_fries:
+        name: Curly Fries
+        next_choice:
+          $ref: diner/milkshake
+      mozzarella_sticks:
+        name: Mozzarella Sticks
+        next_choice:
+          $ref: diner/milkshake
+  milkshake:
+    name: Milkshake
+    prompt: What flavor milkshake do we get?
+    options:
+      vanilla:
+        name: Vanilla
+        next_choice:
+          $ref: diner/breakfast
+      chocolate:
+        name: Chocolate
+        next_choice:
+          $ref: diner/breakfast
+      strawberry:
+        name: Strawberry
+        next_choice:
+          $ref: diner/breakfast
+  breakfast:
+    name: Breakfast
+    prompt: What do we order for breakfast?
+    options:
+      omelette:
+        name: Omelette
+        next_choice:
+          $ref: diner/omelette_side
+      eggs_benedict:
+        name: Eggs Benedict
+        next_choice:
+          $ref: diner/benedict_side
+  omelette_side:
+    name: Side
+    prompt: What side do we get with our omelette?
+    options:
+      toast:
+        name: Toast
+        next_choice:
+          $ref: diner/encounter
+      muffin:
+        name: English Muffin
+        next_choice:
+          $ref: diner/encounter
+  benedict_side:
+    name: Side
+    prompt: What side do we get with our eggs benedict?
+    options:
+      toast:
+        name: Toast
+        next_choice:
+          $ref: diner/encounter
+      fruit:
+        name: Fruit
+        next_choice:
+          $ref: diner/encounter
+  encounter:
+    name: Encounter
+    prompt: Who sits and talks with us?
+    options:
+      classmate:
+        name: A classmate we didn't like
+        next_choice:
+          $ref: diner/poop
+      crush:
+        name: An old crush
+        next_choice:
+          $ref: diner/poop
+  poop:
+    name: Poop
+    prompt: What do we do about the brewing poop?
+    options:
+      now:
+        name: Go now in the diner
+        next_choice: null
+      later:
+        name: Hold it till later
+        next_choice: null

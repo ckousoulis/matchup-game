@@ -1,0 +1,116 @@
+key: bar
+name: Bar
+transition: Off we go to a bar.
+start:
+  $ref: bar/type
+choices:
+  type:
+    name: Bar
+    prompt: What kind of bar do we go to?
+    options:
+      sports:
+        name: Sports Bar
+        next_choice:
+          $ref: bar/beer
+      hotel:
+        name: Hotel Lounge
+        next_choice:
+          $ref: bar/cocktail
+  beer:
+    name: Beer
+    prompt: Which beer do we get?
+    options:
+      dos_equis:
+        name: Dos Equis
+        next_choice:
+          $ref: bar/sport
+      yuengling:
+        name: Yuengling
+        next_choice:
+          $ref: bar/sport
+  cocktail:
+    name: Cocktail
+    prompt: Which cocktail do we get?
+    options:
+      old_fashioned:
+        name: Old Fashioned
+        next_choice:
+          $ref: bar/music
+      negroni:
+        name: Negroni
+        next_choice:
+          $ref: bar/music
+  sport:
+    name: Sport
+    prompt: What sport is on TV?
+    options:
+      hockey:
+        name: Playoff Hockey
+        next_choice:
+          $ref: bar/seat
+      baseball:
+        name: Playoff Baseball
+        next_choice:
+          $ref: bar/seat
+  music:
+    name: Music
+    prompt: Who's playing the live music?
+    options:
+      pianist:
+        name: Lounge pianist
+        next_choice:
+          $ref: bar/seat
+      jazz_trio:
+        name: Jazz trio
+        next_choice:
+          $ref: bar/seat
+  seat:
+    name: Seat
+    prompt: Where do we sit?
+    options:
+      table:
+        name: At a table
+        next_choice:
+          $ref: bar/snack
+      bar:
+        name: At the bar
+        next_choice:
+          $ref: bar/snack
+  snack:
+    name: Snack
+    prompt: What snack do we nibble on?
+    options:
+      popcorn:
+        name: Popcorn
+        next_choice:
+          $ref: bar/overheard
+      peanuts:
+        name: Peanuts
+        next_choice:
+          $ref: bar/overheard
+  overheard:
+    name: Overheard
+    prompt: What conversation are we overhearing?
+    options:
+      breakup:
+        name: A couple breaking up
+        transition: After arguing for a bit, the one who initiated the breakup
+                    leaves. The other person stays.
+        next_choice:
+          $ref: bar/after
+      first_date:
+        name: A couple on a first date
+        transition: The date starts to go awry, and one of them leaves. The
+                    other person stays.
+        next_choice:
+          $ref: bar/after
+  after:
+    name: Go After
+    prompt: Who do we go after?
+    options:
+      who_left:
+        name: The person who left
+        next_choice: null
+      who_stayed:
+        name: The person who stayed
+        next_choice: null

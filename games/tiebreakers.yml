@@ -1,0 +1,91 @@
+colors:
+  prompt: Which of these colors do you like best?
+  options:
+    - Black
+    - Blue
+    - Brown
+    - Gray
+    - Green
+    - Orange
+    - Pink
+    - Purple
+    - Red
+    - White
+    - Yellow
+dinosaurs:
+  prompt: Which of these dinosaurs do you like best?
+  options:
+    - Allosaurus
+    - Apatosaurus
+    - Archaeopteryx
+    - Brachiosaurus
+    - Dilophosaurus
+    - Spinosaurus
+    - Stegosaurus
+    - Triceratops
+    - Tyrannosaurus Rex
+    - Velociraptor
+fruits:
+  prompt: Which of these fruits do you like best?
+  options:
+    - Apples
+    - Avocados
+    - Bananas
+    - Blackberries
+    - Blueberries
+    - Cantaloupe
+    - Cherries
+    - Grapes
+    - Lemons
+    - Limes
+    - Mangoes
+    - Nectarines
+    - Oranges
+    - Peaches
+    - Pears
+    - Pineapple
+    - Plums
+    - Raspberries
+    - Strawberries
+    - Watermelon
+shapes:
+  prompt: Which of these shapes do you like best?
+  options:
+    - Arrow
+    - Circle
+    - Crescent
+    - Cross
+    - Cube
+    - Cylinder
+    - Heart
+    - Hexagon
+    - Octagon
+    - Oval
+    - Parallelogram
+    - Pentagon
+    - Rhombus
+    - Square
+    - Star
+    - Triangle
+vegetables:
+  prompt: Which of these vegetables do you like best?
+  options:
+    - Asparagus
+    - Bell Peppers
+    - Broccoli
+    - Cabbage
+    - Carrots
+    - Cauliflower
+    - Celery
+    - Corn
+    - Cucumbers
+    - Garlic
+    - Green Beans
+    - Green Onions
+    - Lettuce
+    - Mushrooms
+    - Onions
+    - Potatoes
+    - Spinach
+    - Sweet Potatoes
+    - Tomatoes

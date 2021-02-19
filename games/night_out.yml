@@ -1,0 +1,23 @@
+name: A Night Out
+text:
+  console_prompt: Night Out
+  welcome: Let's have a fun night out!
+  instructions: |
+      Tonight, we will pick a few activities.
+      During each, we will make some choices about what to do.
+      Choose wisely, for what we can do may depend on what we've done.
+  worlds_prefix: Our night
+  world_selection: What activity do we do next?
+  summary: A fun night ends, and we all go home. Here's what we did.
+# history_file: night_out_history
+tiebreakers: tiebreakers.yml
+worlds:
+  - night_out/bar.yml
+  - night_out/casino.yml
+  - night_out/diner.yml
+  - night_out/downtown.yml
+  - night_out/drive.yml
+  - night_out/movie.yml
+  - night_out/party.yml
+max_worlds: 4
+final_world: night_out/nightcap.yml

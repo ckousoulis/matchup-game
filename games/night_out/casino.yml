@@ -1,0 +1,133 @@
+key: casino
+name: Casino
+transition: Off we go to a casino.
+start:
+  $ref: casino/side
+choices:
+  side:
+    name: Side
+    prompt: Which side of Atlantic City do we go to?
+    options:
+      ocean_side:
+        name: Ocean side
+        next_choice:
+          $ref: casino/game
+      bay_side:
+        name: Bay side
+        next_choice:
+          $ref: casino/game
+  game:
+    name: Table Game
+    prompt: Which table game do we play?
+    options:
+      craps:
+        name: Craps
+        next_choice:
+          $ref: casino/craps
+      roulette:
+        name: Roulette
+        next_choice:
+          $ref: casino/roulette
+  craps:
+    name: Bet
+    prompt: What bet do we place?
+    options:
+      odds_bet:
+        name: Odds bet
+        transition: We bet the max on 8 and hit. We play a second game to grow
+                    our winnings.
+        next_choice:
+          $ref: casino/game_2a
+      field_bet:
+        name: Field bet
+        transition: A 7 is rolled and we crap out. We switch to a game where we
+                    can make our remaining money last longer.
+        next_choice:
+          $ref: casino/game_2b
+  roulette:
+    name: Bet
+    prompt: What bet do we place?
+    options:
+      inside_bet:
+        name: Inside bet
+        transition: We bet on 15 straight up and hit. We play a second game to
+                    grow our winnings.
+        next_choice:
+          $ref: casino/game_2a
+      outside_bet:
+        name: Outside bet
+        transition: We bet red but it comes up black. We switch to a game where
+                    we can make our remaining money last longer.
+        next_choice:
+          $ref: casino/game_2b
+  game_2a:
+    name: Winning Game
+    prompt: What do we play to win more?
+    options:
+      blackjack:
+        name: Blackjack
+        next_choice:
+          $ref: casino/buffet
+      no_limit_poker:
+        name: No-limit Poker
+        next_choice:
+          $ref: casino/buffet
+  game_2b:
+    name: Losing Game
+    prompt: What do we play to manage our losses?
+    options:
+      slots:
+        name: Slots
+        next_choice:
+          $ref: casino/buffet
+      limit_poker:
+        name: Limit Poker
+        next_choice:
+          $ref: casino/buffet
+  buffet:
+    name: Buffet
+    prompt: What do we pig out on at the buffet?
+    options:
+      prime_rib:
+        name: Prime Rib
+        next_choice:
+          $ref: casino/drink
+      shrimp_cocktail:
+        name: Shrimp Cocktail
+        next_choice:
+          $ref: casino/drink
+  drink:
+    name: Drink
+    prompt: What do we drink?
+    options:
+      white_russian:
+        name: White Russian
+        transition: We feel queasy from the dairy. Puke is imminent.
+        next_choice:
+          $ref: casino/puke
+      dirty_martini:
+        name: Dirty Martini
+        transition: The drink is, as Brian Block says, "filthy". We puke on the
+                    big guy next to us, and he comes right at us for a fight.
+        next_choice:
+          $ref: casino/fight
+  puke:
+    name: Puke
+    prompt: Where do we rush to puke?
+    options:
+      bathroom:
+        name: Bathroom
+        next_choice: null
+      outside:
+        name: Outside
+        next_choice: null
+  fight:
+    name: Fight
+    prompt: What do we grab for the fight?
+    options:
+      bar_stool:
+        name: Bar Stool
+        next_choice: null
+      fire_extinguisher:
+        name: Fire Extinguisher
+        next_choice: null

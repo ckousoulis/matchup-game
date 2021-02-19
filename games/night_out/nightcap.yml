@@ -1,0 +1,19 @@
+key: nightcap
+name: Nightcap
+transition: The night ends, but the fun does not.
+start:
+  $ref: nightcap/text
+choices:
+  text:
+    name: Text
+    prompt: What line from the night gets texted to the group as we're getting to bed?
+    options:
+      skittles:
+        name: '"Uup! My skittles"'
+        next_choice: null
+      chick:
+        name: '"Was he wearing that hat the whole time?"'
+        next_choice: null
+      responsible:
+        name: '"I''m sorry. I don''t have a kazoo"'
+        next_choice: null

@@ -1,0 +1,102 @@
+key: drive
+name: Drive
+transition: Off we go for a drive.
+start:
+  $ref: drive/music
+choices:
+  music:
+    name: Music
+    prompt: What music do we listen to?
+    options:
+      daft punk:
+        name: Daft Punk
+        next_choice:
+          $ref: drive/road
+      elo:
+        name: Electric Light Orchestra
+        next_choice:
+          $ref: drive/road
+      sufjan:
+        name: Sufjan Stevens
+        next_choice:
+          $ref: drive/road
+  road:
+    name: Road
+    prompt: What roads do we mostly take?
+    options:
+      highway:
+        name: Highways
+        next_choice:
+          $ref: drive/air
+      local_streets:
+        name: Local streets
+        next_choice:
+          $ref: drive/air
+  air:
+    name: Air
+    prompt: How do we keep the car cool?
+    options:
+      ac:
+        name: Air Conditioning
+        next_choice:
+          $ref: drive/sonic
+      windows:
+        name: Windows down
+        next_choice:
+          $ref: drive/sonic
+  sonic:
+    name: Sonic
+    prompt: What fun drink do we get from Sonic?
+    options:
+      slush:
+        name: Blue Raspberry Slush
+        next_choice:
+          $ref: drive/snack
+      shake:
+        name: Oreo Peanut Butter Shake
+        next_choice:
+          $ref: drive/snack
+  snack:
+    name: Snack
+    prompt: What drive-thru item do we snack on?
+    options:
+      wendys_nuggets:
+        name: Wendy's Nuggets
+        next_choice:
+          $ref: drive/stop
+      mcd_fries:
+        name: McDonald's French Fries
+        next_choice:
+          $ref: drive/stop
+  stop:
+    name: Stop
+    prompt: Where do we stop for a short walk?
+    options:
+      pine:
+        name: Pine Barrens
+        next_choice:
+          $ref: drive/pine_spook
+      beach:
+        name: Empty Beach
+        next_choice:
+          $ref: drive/beach_spook
+  pine_spook:
+    name: Spook
+    prompt: What scares us?
+    options:
+      mothman:
+        name: Mothman
+        next_choice: null
+      chupacabra:
+        name: Chupacabra
+        next_choice: null
+  beach_spook:
+    name: Spook
+    prompt: What scares us?
+    options:
+      aliens:
+        name: Aliens
+        next_choice: null
+      kraken:
+        name: Kraken
+        next_choice: null
