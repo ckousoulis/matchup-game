@@ -21,7 +21,7 @@ setup(
     },
     python_requires="~=3.8",
     install_requires=["pyyaml"],
-    keywords="cli macos messages chats",
+    keywords="cli game",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
