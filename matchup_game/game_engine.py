@@ -172,6 +172,7 @@ class Tiebreaker():
       config: Data model for tiebreakers.
       console: Console for player input/output.
       do_vote: Function that handles voting.
+      indent: Prefix string for tiebreaker text.
       tiebreakers: Available tiebreaker questions.
   """
   def __init__(self, engine):
@@ -183,6 +184,7 @@ class Tiebreaker():
     self.config = engine.model.tiebreakers
     self.console = engine.console
     self.do_vote = engine.do_vote
+    self.indent = "\t"
 
     self.tiebreakers = list(self.config.keys())
     random.shuffle(self.tiebreakers)
@@ -197,7 +199,7 @@ class Tiebreaker():
     Returns:
         The values selected via tiebreak. More than one if another tie.
     """
-    self.console.out("\tTiebreak: ", style="event", end="")
+    self.console.out(f"{self.indent}Tiebreak: ", style="event", end="")
 
     if self.tiebreakers:
       return self.vote_break(options, tied_keys)
@@ -248,11 +250,12 @@ class Tiebreaker():
 
     to_keys = self.tiebreaker_to_keys(tiebreaker, tied_keys)
     vote_options = self.vote_options(to_keys)
-    reply = [vote_options[r] for r in self.do_vote(vote_options, indent="\t")]
-    for winner in reply:
-      self.console.out(f"\t{winner} > {options[to_keys[winner]].name}")
+    reply = [vote_options[r] for r in self.do_vote(vote_options, self.indent)]
+    winners = [to_keys[winner] for winner in reply]
+    for name, key in zip(reply, winners):
+      self.console.out(f"{self.indent}{name} > {options[key].name}")
 
-    return [to_keys[winner] for winner in reply]
+    return winners
 
   def random_break(self, options, tied_keys):
     """Breaks a tie by picking a random option.
@@ -265,5 +268,5 @@ class Tiebreaker():
         The random value selected to break the tie.
     """
     reply = random.choice(tied_keys)
-    self.console.out("Random...\n\t...%s" % options[reply].name)
+    self.console.out(f"Random...\n{self.indent}...{options[reply].name}")
     return [reply]

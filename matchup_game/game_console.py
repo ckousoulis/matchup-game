@@ -29,22 +29,21 @@ class GameConsole(Cmd):
       "alert": {
           "color": "red",
           "attrs": ["bold"],
-        },
+      },
       "event": {
-          "color": "magenta"
-        },
+          "color": "magenta",
+      },
       "heading": {
-          "color": "green"
-        },
+          "color": "green",
+      },
       "info": {
-          "color": "white"
-        },
+          "color": "white",
+      },
       "prompt": {
           "color": "cyan",
           "attrs": ["bold"],
-          "escape": True
-        }
-    }
+      },
+  }
 
   @staticmethod
   def style_text(*objects, **styles):
@@ -68,8 +67,8 @@ class GameConsole(Cmd):
         style: One of STYLES to apply to all objects.
         end: Text to follow the printed objects.
     """
-    styles = GameConsole.STYLES[style or "info"]
-    print(*GameConsole.style_text(*objects, **styles), end=end)
+    print(*GameConsole.style_text(*objects,
+        **GameConsole.STYLES[style or "info"]), end=end)
 
   @staticmethod
   @contextmanager
@@ -93,11 +92,10 @@ class GameConsole(Cmd):
     Returns:
         The user's input as a String.
     """
-    styles = GameConsole.STYLES[style or "prompt"]
-    styles["escape"] = True
     with GameConsole.readline_disabled():
       try:
-        return input("%s " % GameConsole.style_text(prompt, **styles))
+        return input("%s " % GameConsole.style_text(prompt,
+            **GameConsole.STYLES[style or "prompt"], escape=True))
       except KeyboardInterrupt:
         GameConsole.out()
         return ""
@@ -110,8 +108,9 @@ class GameConsole(Cmd):
     """
     super().__init__()
 
-    self.prompt = "%s " % GameConsole.style_text("<%s>" %
-        model.text["console_prompt"], **GameConsole.STYLES["prompt"])
+    self.prompt = "%s " % self.style_text("<%s>" %
+        model.text["console_prompt"], **GameConsole.STYLES["prompt"],
+        escape=True)
 
     if model.history_file:
       self.history = Path(f"~/.{model.history_file}").expanduser()
